@@ -43,6 +43,16 @@
         <span class="material-symbols-outlined text-sm">list</span>
         All Posts
       </a>
+      <a href="/post/{{ post.id }}/edit" class="bg-primary-container text-on-primary-container px-8 py-3 rounded-xl font-label-sm text-label-sm uppercase tracking-widest shadow-sm hover:shadow-md transition-all active:scale-95 flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm">edit</span>
+        Edit Post
+      </a>
+      <form method="POST" action="/post/{{ post.id }}/delete" onsubmit="return confirm('정말 삭제할까요?');">
+        <button type="submit" class="border border-stone-300 text-stone-600 px-8 py-3 rounded-xl font-label-sm text-label-sm uppercase tracking-widest hover:bg-stone-100 transition-all active:scale-95 flex items-center gap-2">
+          <span class="material-symbols-outlined text-sm">delete</span>
+          Delete
+        </button>
+      </form>
     </div>
   </div>
 

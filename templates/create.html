@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}<title>Write a Story — BlogBoard</title>{% endblock %}
+{% block title %}<title>{% if post %}Edit Story{% else %}Write a Story{% endif %} — BlogBoard</title>{% endblock %}
 
 {% block content %}
 <main class="flex-grow pt-24 pb-32 px-5 md:pt-32">
@@ -8,11 +8,11 @@
   <!-- Header -->
   <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
     <div>
-      <h1 class="font-headline-xl text-headline-xl text-on-surface">Draft a new story</h1>
+      <h1 class="font-headline-xl text-headline-xl text-on-surface">{% if post %}Edit your story{% else %}Draft a new story{% endif %}</h1>
       <p class="text-on-surface-variant font-body-lg mt-2">Capture your thoughts in the quiet of this space.</p>
     </div>
     <div class="flex items-center gap-4">
-      <a href="/" class="px-6 py-2 rounded-full border border-outline text-label-sm text-secondary hover:bg-surface-container transition-colors active:scale-95">Cancel</a>
+      <a href="{{ '/post/' ~ post.id if post else '/' }}" class="px-6 py-2 rounded-full border border-outline text-label-sm text-secondary hover:bg-surface-container transition-colors active:scale-95">Cancel</a>
     </div>
   </div>
 
@@ -24,21 +24,22 @@
       <div class="space-y-2">
         <label class="text-label-sm text-tertiary block" for="post-title">POST TITLE</label>
         <input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-outline-variant py-4 font-headline-lg text-headline-lg focus:border-primary focus:ring-0 focus:outline-none transition-colors placeholder:text-surface-dim"
-               id="post-title" name="title" placeholder="Enter a descriptive title..." type="text" required/>
+               id="post-title" name="title" placeholder="Enter a descriptive title..." type="text" required
+               value="{{ post.title if post else '' }}"/>
       </div>
 
       <!-- Content -->
       <div class="space-y-2 pt-4">
         <label class="text-label-sm text-tertiary block" for="post-content">CONTENT</label>
         <textarea class="w-full bg-transparent border-none p-0 font-body-lg text-body-lg focus:ring-0 focus:outline-none resize-none placeholder:text-surface-dim"
-                  id="post-content" name="content" placeholder="Begin your journey here..." rows="15" required></textarea>
+                  id="post-content" name="content" placeholder="Begin your journey here..." rows="15" required>{{ post.content if post else '' }}</textarea>
       </div>
 
       <!-- Submit -->
       <div class="flex justify-end gap-4 pt-4">
-        <a href="/" class="px-6 py-2 rounded-full border border-outline text-label-sm text-secondary hover:bg-surface-container transition-colors">Cancel</a>
+        <a href="{{ '/post/' ~ post.id if post else '/' }}" class="px-6 py-2 rounded-full border border-outline text-label-sm text-secondary hover:bg-surface-container transition-colors">Cancel</a>
         <button type="submit" class="px-8 py-3 rounded-full bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest shadow-sm hover:shadow-md transition-all active:scale-95">
-          Publish Now
+          {% if post %}Update{% else %}Publish Now{% endif %}
         </button>
       </div>
 
