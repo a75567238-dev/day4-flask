@@ -3,9 +3,16 @@ from flask import Flask, render_template, request, redirect, url_for
 from models import db, Post
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
-    os.path.abspath(os.path.dirname(__file__)), "instance", "tasks.db"
-)
+
+database_url = os.environ.get("DATABASE_URL")
+if database_url:
+    database_url = database_url.replace("postgres://", "postgresql://", 1)
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+else:
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
+        os.path.abspath(os.path.dirname(__file__)), "instance", "tasks.db"
+    )
+
 db.init_app(app)
 
 with app.app_context():
