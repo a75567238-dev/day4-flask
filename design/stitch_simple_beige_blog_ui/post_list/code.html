@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#ede7e3",
+                    "surface-bright": "#fef8f4",
+                    "surface": "#fef8f4",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#6b5c4a",
+                    "on-primary-fixed-variant": "#534434",
+                    "on-secondary-container": "#6c6359",
+                    "outline": "#7f756d",
+                    "on-surface-variant": "#4d453e",
+                    "surface-dim": "#dfd9d5",
+                    "inverse-surface": "#32302e",
+                    "tertiary": "#625e56",
+                    "on-secondary-fixed": "#211a13",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#f3ede9",
+                    "primary-container": "#dcc7b1",
+                    "on-tertiary-fixed-variant": "#4a463f",
+                    "primary-fixed": "#f5dfc8",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1d1b19",
+                    "secondary-fixed-dim": "#d1c4b9",
+                    "surface-container-highest": "#e7e1de",
+                    "on-primary-container": "#625241",
+                    "on-tertiary-fixed": "#1e1b15",
+                    "inverse-on-surface": "#f6f0ec",
+                    "secondary-fixed": "#eee0d4",
+                    "tertiary-fixed-dim": "#ccc6bc",
+                    "secondary-container": "#eee0d4",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#d0c5ba",
+                    "on-secondary-fixed-variant": "#4e453d",
+                    "on-error": "#ffffff",
+                    "background": "#fef8f4",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e7e1de",
+                    "tertiary-fixed": "#e8e2d8",
+                    "tertiary-container": "#d0cac0",
+                    "on-background": "#1d1b19",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#d8c3ad",
+                    "on-tertiary-container": "#59554d",
+                    "secondary": "#665d54",
+                    "surface-tint": "#6b5c4a",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f9f2ef",
+                    "inverse-primary": "#d8c3ad",
+                    "on-primary-fixed": "#241a0c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "container-max": "1120px",
+                    "sm": "12px",
+                    "xs": "4px",
+                    "lg": "48px",
+                    "gutter": "20px",
+                    "xl": "80px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Newsreader"],
+                    "headline-xl": ["Newsreader"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["Newsreader"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .editorial-shadow {
+            box-shadow: 0 4px 20px -2px rgba(92, 83, 74, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-stone-100/80 backdrop-blur-md border-b border-stone-200/50 shadow-sm">
+<div class="flex justify-between items-center px-5 py-4 max-w-[1120px] mx-auto w-full">
+<div class="text-2xl font-bold font-serif text-stone-900">BlogBoard</div>
+<nav class="hidden md:flex items-center gap-8 font-serif italic text-lg">
+<a class="text-stone-900 border-b-2 border-stone-400 pb-1 cursor-pointer active:opacity-70 transition-colors" href="#">Explore</a>
+<a class="text-stone-500 hover:text-stone-900 cursor-pointer active:opacity-70 transition-colors" href="#">Latest</a>
+<a class="text-stone-500 hover:text-stone-900 cursor-pointer active:opacity-70 transition-colors" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-surface-container px-3 py-1.5 rounded-full border-b-2 border-transparent focus-within:border-primary transition-all">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32 font-body-md" placeholder="Search..." type="text"/>
+</div>
+<button class="cursor-pointer active:opacity-70">
+<span class="material-symbols-outlined text-stone-800" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-24 pb-20 md:pb-12 px-gutter max-w-[1120px] mx-auto w-full">
+<!-- Hero/Header Section -->
+<section class="mb-12 md:mb-16">
+<h1 class="font-headline-xl text-headline-xl text-stone-900 mb-4">Curated Perspectives</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A collection of long-form thoughts on design, culture, and the art of slow living.</p>
+</section>
+<!-- Bento Grid Layout for Posts -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Featured Large Post -->
+<article class="md:col-span-8 group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden editorial-shadow hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+<div class="aspect-[16/9] overflow-hidden">
+<img alt="Featured post image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Minimalist workspace with a vintage typewriter, a ceramic cup of coffee, and soft morning sunlight filtering through linen curtains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiHpLv0UK3arsiBOIPP4MtDcnfX7hzJJ7HcbnrvYYydIshq-wh5MzYS7Z1bpc0lisLp17K7rGqsik-BxOnHU6sssBWkLVvWlRzzMeMFWQPhS9AFPuSxpS3WSnMBka4HZIBjW1vpToZtLjyW4_2cL0nTX00WpyjTwOCYgL9Mo-ywUA5uYOvK3cU386xo0mpXByo0Z0-ZaAvXAPQTlWHxlSfWqnkAaZQkLX9WSxh1Cmv2klztodVjj3BgemxJYwRQoWWaYxMXYp2a5X2"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-sm text-label-sm">EDITORIAL</span>
+<span class="font-label-sm text-label-sm text-outline">OCT 24, 2024</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-stone-900 mb-4 group-hover:text-primary transition-colors">The Renaissance of Physical Media in a Digital Age</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">In an era of fleeting cloud storage and algorithmic feeds, we explore why the tactile weight of a printed page and the crackle of vinyl are making a sophisticated comeback in modern homes.</p>
+<div class="mt-auto flex items-center gap-2 font-label-sm text-label-sm text-primary uppercase tracking-widest">
+                            Read Article <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Small Sidebar Posts -->
+<div class="md:col-span-4 flex flex-col gap-md">
+<article class="group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-xl p-6 editorial-shadow hover:shadow-lg transition-all h-full">
+<span class="font-label-sm text-label-sm text-outline mb-3 block">OCT 22, 2024</span>
+<h3 class="font-headline-md text-headline-md text-stone-900 mb-3 group-hover:text-primary transition-colors">Quiet Luxury: More Than a Trend</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">How intentional minimalism is redefining our relationship with possessions.</p>
+</div>
+</article>
+<article class="group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-xl p-6 editorial-shadow hover:shadow-lg transition-all h-full">
+<span class="font-label-sm text-label-sm text-outline mb-3 block">OCT 20, 2024</span>
+<h3 class="font-headline-md text-headline-md text-stone-900 mb-3 group-hover:text-primary transition-colors">Sustainable Craftsmanship</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Meeting the artisans who prioritize longevity over rapid production cycles.</p>
+</div>
+</article>
+<article class="group cursor-pointer flex-grow">
+<div class="bg-primary-container/30 border border-primary-container rounded-xl p-6 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="auto_stories">auto_stories</span>
+<h4 class="font-headline-md text-headline-md text-on-primary-container mb-2">Weekly Newsletter</h4>
+<p class="font-body-md text-body-md text-on-primary-container/80 mb-6">Deep dives delivered to your inbox every Sunday.</p>
+<button class="w-full bg-primary text-on-primary font-label-sm text-label-sm py-3 rounded-lg hover:opacity-90 transition-opacity">SUBSCRIBE</button>
+</div>
+</article>
+</div>
+<!-- Standard Grid Posts -->
+<article class="md:col-span-4 group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden editorial-shadow hover:shadow-lg transition-all h-full">
+<div class="aspect-video overflow-hidden">
+<img alt="Post image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Abstract architectural shot of clean white concrete curves against a deep blue sky with harsh geometric shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkf01Cx9RNCXR501giXkA_KPNo4rf2T-lEWH1_J9iD4_ilpF9wz22csYawRj0xKjJt-ihjqSNKXrvuiCIDDNfKjYgVD-jT_Gjwgs5YGWvn7PhKFe-oINW-iQDIFESiuf0_i4QKdEsYV_CXWpRqCVC5JEJnYIcCyeSaOnWGxyVe5H-79nH8NRgjyW6D46Xmis58H2rJPJk_eh1oDKgAVXqPeqPL1977g9ajoBlPWNQYOP35R8IY_-Z-B6g7nzzI34wwfEH6S-uNqvYE"/>
+</div>
+<div class="p-6">
+<span class="font-label-sm text-label-sm text-outline mb-2 block">OCT 18, 2024</span>
+<h3 class="font-headline-md text-headline-md text-stone-900 mb-3 group-hover:text-primary transition-colors">Modernist Architecture</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Finding beauty in the functional constraints of mid-century design principles.</p>
+</div>
+</div>
+</article>
+<article class="md:col-span-4 group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden editorial-shadow hover:shadow-lg transition-all h-full">
+<div class="aspect-video overflow-hidden">
+<img alt="Post image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Close-up of vibrant green moss growing on wet river stones with soft forest lighting and dew drops" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT8qdNRtLcKzStptaLeBzWbUOe52EkSH21iYD56ZIa98PW49EuLWJRDzKRWfxLpZb1Oy_eMhiqg2jOQ0dcgW62jGDz_VaA0yqmtexqUROJCHqVHjOT3vSOYUNb05WfZ9uSBkrrceI3C5BSoEN7sWYZGX1h66vNqL0JPLL1DUYhIGzp0Eh9cn65huwoKu_K0HFJRl5J27oq2MwKcg9QEdokMA2wQlQ6d8Uu-z2yezt8-ZbkXrGxYtiQrQaKIpJ3n0fiJwZjWlhQIPQD"/>
+</div>
+<div class="p-6">
+<span class="font-label-sm text-label-sm text-outline mb-2 block">OCT 15, 2024</span>
+<h3 class="font-headline-md text-headline-md text-stone-900 mb-3 group-hover:text-primary transition-colors">The Micro-Seasonal Living</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Observing the subtle shifts in nature that define our daily emotional rhythms.</p>
+</div>
+</div>
+</article>
+<article class="md:col-span-4 group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden editorial-shadow hover:shadow-lg transition-all h-full">
+<div class="aspect-video overflow-hidden">
+<img alt="Post image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Warm indoor lighting illuminating a cozy reading nook with a wooden bookshelf and an Eames-style lounge chair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6NWO1iAibNsWDM-5DPoLkMafw1RzBg3dB1_M9CH-rTB4oxXsPNxB94QORXC2q5Y-o4ckRQGbPmrYXKfN79GpCUuiNCYurE6C3VVYZ_3xkplUt64s2qn0s6XrC_EM5T6ORyQAEF92RavkdP-7H0WMqmTW2eSwkXGnJVHYXl6v4YTZRcFz8oxvZu4nqfPIOfk_brT0lJ4oLAyXuuNymgyWOdaWPU6DZnuWbTOcUcYB1QXaOTrxCjXsqy2zsE4T9C0RGco5pC_lqD1eh"/>
+</div>
+<div class="p-6">
+<span class="font-label-sm text-label-sm text-outline mb-2 block">OCT 12, 2024</span>
+<h3 class="font-headline-md text-headline-md text-stone-900 mb-3 group-hover:text-primary transition-colors">Lighting and Mood</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Why the color temperature of your home matters more than your furniture choice.</p>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex justify-center items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-stone-200 text-stone-400 hover:text-stone-900 hover:border-stone-900 transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<span class="font-serif italic text-stone-900">Page 01 of 12</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 md:hidden bg-stone-50 dark:bg-stone-950 z-50 border-t border-stone-200 shadow-[0_-4px_12px_rgba(92,83,74,0.08)]">
+<a class="flex flex-col items-center justify-center bg-stone-200 rounded-lg px-4 py-1 text-stone-900 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-serif text-[11px] uppercase tracking-wider">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-serif text-[11px] uppercase tracking-wider">Create</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-serif text-[11px] uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-12 px-5 mt-auto bg-stone-100 border-t border-stone-200">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-[1120px] mx-auto gap-8">
+<div class="text-center md:text-left">
+<div class="font-serif italic text-stone-800 text-xl mb-2">BlogBoard</div>
+<p class="font-serif text-sm text-stone-600">© 2024 BlogBoard Editorial</p>
+</div>
+<div class="flex gap-8 font-serif text-sm">
+<a class="text-stone-500 hover:text-stone-800 transition-opacity duration-300" href="#">Privacy</a>
+<a class="text-stone-500 hover:text-stone-800 transition-opacity duration-300" href="#">Terms</a>
+<a class="text-stone-500 hover:text-stone-800 transition-opacity duration-300" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<a class="text-stone-400 hover:text-stone-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+</a>
+<a class="text-stone-400 hover:text-stone-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>

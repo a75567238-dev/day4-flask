@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create New Post | BlogBoard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&amp;family=Newsreader:ital,wght@0,500;0,600;1,500;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#ede7e3",
+                    "surface-bright": "#fef8f4",
+                    "surface": "#fef8f4",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#6b5c4a",
+                    "on-primary-fixed-variant": "#534434",
+                    "on-secondary-container": "#6c6359",
+                    "outline": "#7f756d",
+                    "on-surface-variant": "#4d453e",
+                    "surface-dim": "#dfd9d5",
+                    "inverse-surface": "#32302e",
+                    "tertiary": "#625e56",
+                    "on-secondary-fixed": "#211a13",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#f3ede9",
+                    "primary-container": "#dcc7b1",
+                    "on-tertiary-fixed-variant": "#4a463f",
+                    "primary-fixed": "#f5dfc8",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1d1b19",
+                    "secondary-fixed-dim": "#d1c4b9",
+                    "surface-container-highest": "#e7e1de",
+                    "on-primary-container": "#625241",
+                    "on-tertiary-fixed": "#1e1b15",
+                    "inverse-on-surface": "#f6f0ec",
+                    "secondary-fixed": "#eee0d4",
+                    "tertiary-fixed-dim": "#ccc6bc",
+                    "secondary-container": "#eee0d4",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#d0c5ba",
+                    "on-secondary-fixed-variant": "#4e453d",
+                    "on-error": "#ffffff",
+                    "background": "#fef8f4",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e7e1de",
+                    "tertiary-fixed": "#e8e2d8",
+                    "tertiary-container": "#d0cac0",
+                    "on-background": "#1d1b19",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#d8c3ad",
+                    "on-tertiary-container": "#59554d",
+                    "secondary": "#665d54",
+                    "surface-tint": "#6b5c4a",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f9f2ef",
+                    "inverse-primary": "#d8c3ad",
+                    "on-primary-fixed": "#241a0c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "container-max": "1120px",
+                    "sm": "12px",
+                    "xs": "4px",
+                    "lg": "48px",
+                    "gutter": "20px",
+                    "xl": "80px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Newsreader"],
+                    "headline-xl": ["Newsreader"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["Newsreader"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-focus-bottom:focus {
+            outline: none;
+            border-bottom: 2px solid #6b5c4a;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fef8f4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d0c5ba;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-stone-100/80 dark:bg-stone-900/80 backdrop-blur-md border-b border-stone-200/50 dark:border-stone-800/50 shadow-sm">
+<div class="flex justify-between items-center px-5 py-4 max-w-[1120px] mx-auto w-full">
+<div class="text-2xl font-bold font-serif text-stone-900 dark:text-stone-50 cursor-pointer active:opacity-70">BlogBoard</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-serif italic text-lg text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer active:opacity-70" href="#">Explore</a>
+<a class="font-serif italic text-lg text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer active:opacity-70" href="#">Latest</a>
+<a class="font-serif italic text-lg text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer active:opacity-70" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="bg-surface-container rounded-full py-1.5 pl-10 pr-4 text-label-sm border-none focus:ring-1 focus:ring-primary-container w-48" placeholder="Search..." type="text"/>
+</div>
+<div class="text-stone-800 dark:text-stone-100 cursor-pointer active:opacity-70">
+<span class="material-symbols-outlined text-[28px]" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-24 pb-32 px-gutter md:pt-32">
+<div class="max-w-[800px] mx-auto">
+<!-- Editor Header Area -->
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Draft a new story</h1>
+<p class="text-on-surface-variant font-body-lg mt-2">Capture your thoughts in the quiet of this space.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 rounded-full border border-outline text-label-sm text-secondary hover:bg-surface-container transition-colors active:scale-95">Save Draft</button>
+<button class="px-6 py-2 rounded-full bg-primary-container text-on-primary-container font-label-sm shadow-sm hover:shadow-md transition-all active:scale-95">Publish Now</button>
+</div>
+</div>
+<!-- Form Content -->
+<div class="bg-surface-container-lowest rounded-xl p-8 md:p-12 shadow-[0_4px_12px_rgba(92,83,74,0.08)]">
+<form class="space-y-10">
+<!-- Featured Image Placeholder -->
+<div class="group relative w-full h-[300px] bg-surface-container rounded-lg overflow-hidden flex items-center justify-center border-2 border-dashed border-outline-variant hover:border-primary transition-colors cursor-pointer">
+<div class="text-center">
+<span class="material-symbols-outlined text-outline text-4xl mb-2">add_photo_alternate</span>
+<p class="text-label-sm text-on-surface-variant">Add a cover image</p>
+</div>
+<img class="hidden absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity" data-alt="Close-up of a minimalist writing desk with a vintage typewriter, soft morning light, and a small ceramic cup of coffee" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmC__d4NaljR3T6npuz48hhk3MkhMTk97kGvYCqNkvW5nA8TwjgvJCPLh3zijOckUzzB4eTK8RhqwDHLFKByGCqZFOMk4ac9Hm20j1OOWqW3b6R6d6NVAvtdOTEXdHus9p4KRzoORmMRhJfFWhis-jLzLfqPlv6JGtgDtNcz3eIRXt7a-LCyZc3WFCp0uJTQWLCvH_gPjs-iAS5XE1EVg2iSVlfG9zaxP7M3IBHf7yq8vAifyWmsb7GkumN5aMx-eICVUEtRouTScl"/>
+</div>
+<!-- Title Field -->
+<div class="space-y-2">
+<label class="text-label-sm text-tertiary block" for="post-title">POST TITLE</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-outline-variant py-4 font-headline-lg text-headline-lg focus:border-primary focus:ring-0 transition-colors placeholder:text-surface-dim" id="post-title" placeholder="Enter a descriptive title..." type="text"/>
+</div>
+<!-- Tags Field -->
+<div class="flex flex-wrap gap-2 items-center">
+<span class="material-symbols-outlined text-outline text-[20px]">sell</span>
+<div class="flex gap-2">
+<span class="bg-tertiary-container text-on-tertiary-container text-label-sm px-3 py-1 rounded-full flex items-center gap-1">
+                                Design <span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+<span class="bg-tertiary-container text-on-tertiary-container text-label-sm px-3 py-1 rounded-full flex items-center gap-1">
+                                Philosophy <span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+<button class="text-label-sm text-primary hover:underline">+ Add Tag</button>
+</div>
+</div>
+<!-- Body Content -->
+<div class="space-y-2 pt-4">
+<label class="text-label-sm text-tertiary block" for="post-content">CONTENT</label>
+<div class="relative">
+<!-- Simple Rich Text Toolbar Simulation -->
+<div class="flex gap-4 mb-4 border-b border-outline-variant pb-2">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary" type="button">format_bold</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary" type="button">format_italic</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary" type="button">format_list_bulleted</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary" type="button">format_quote</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary" type="button">link</button>
+</div>
+<textarea class="w-full bg-transparent border-none p-0 font-body-lg text-body-lg focus:ring-0 resize-none placeholder:text-surface-dim" id="post-content" placeholder="Begin your journey here..." rows="15"></textarea>
+</div>
+</div>
+</form>
+</div>
+<!-- Footer Help/Guidelines -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-on-surface-variant">
+<div class="flex gap-4 p-4 rounded-lg bg-surface-container-low border border-outline-variant">
+<span class="material-symbols-outlined text-primary">tips_and_updates</span>
+<div>
+<h4 class="font-label-sm text-on-surface">Writing Tip</h4>
+<p class="text-[13px] leading-relaxed">Start with a strong hook to engage your readers from the very first paragraph.</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 rounded-lg bg-surface-container-low border border-outline-variant">
+<span class="material-symbols-outlined text-primary">visibility</span>
+<div>
+<h4 class="font-label-sm text-on-surface">Preview Mode</h4>
+<p class="text-[13px] leading-relaxed">Your post will be rendered using our editorial font 'Newsreader' for maximum legibility.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="w-full py-12 px-5 mt-auto bg-stone-100 dark:bg-stone-950 border-t border-stone-200 dark:border-stone-800">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-[1120px] mx-auto gap-4">
+<div class="font-serif italic text-stone-800 dark:text-stone-200 text-lg">BlogBoard</div>
+<div class="font-serif text-sm text-stone-600 dark:text-stone-400">© 2024 BlogBoard Editorial</div>
+<div class="flex gap-6">
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity duration-300" href="#">Privacy</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity duration-300" href="#">Terms</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity duration-300" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 md:hidden bg-stone-50 dark:bg-stone-950 border-t border-stone-200 dark:border-stone-800 shadow-[0_-4px_12px_rgba(92,83,74,0.08)] z-50">
+<div class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-serif text-[11px] uppercase tracking-wider">Feed</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-stone-200 dark:bg-stone-800 rounded-lg px-4 py-1 text-stone-900 dark:text-stone-50 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-serif text-[11px] uppercase tracking-wider">Create</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-serif text-[11px] uppercase tracking-wider">Profile</span>
+</div>
+</nav>
+</body></html>

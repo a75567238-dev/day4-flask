@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}<title>{{ post.title }} — BlogBoard</title>{% endblock %}
+
+{% block content %}
+<main class="flex-grow pt-24 pb-20 md:pb-32 px-5">
+<article class="max-w-[800px] mx-auto">
+
+  <!-- Back link -->
+  <div class="flex items-center gap-4 mb-8">
+    <a href="/" class="flex items-center text-stone-500 hover:text-stone-900 transition-colors group">
+      <span class="material-symbols-outlined mr-1 group-hover:translate-x-[-2px] transition-transform">arrow_back</span>
+      <span class="font-label-sm text-label-sm uppercase tracking-wider">Back</span>
+    </a>
+  </div>
+
+  <!-- Title -->
+  <header class="mb-12">
+    <h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight">{{ post.title }}</h1>
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center">
+        <span class="material-symbols-outlined text-primary">person</span>
+      </div>
+      <div>
+        <p class="font-label-sm text-label-sm text-on-surface">BlogBoard Author</p>
+        <p class="font-label-sm text-label-sm text-stone-400">{{ post.created_at.strftime('%b %d, %Y') }}</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <div class="prose max-w-none mb-16">
+    {% for paragraph in post.content.split('\n') %}
+      {% if paragraph %}
+      <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">{{ paragraph }}</p>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="border-t border-stone-200 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <a href="/" class="bg-primary-container text-on-primary-container px-8 py-3 rounded-xl font-label-sm text-label-sm uppercase tracking-widest shadow-sm hover:shadow-md transition-all active:scale-95 flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm">list</span>
+        All Posts
+      </a>
+    </div>
+  </div>
+
+</article>
+</main>
+{% endblock %}

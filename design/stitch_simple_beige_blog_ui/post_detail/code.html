@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#ede7e3",
+                    "surface-bright": "#fef8f4",
+                    "surface": "#fef8f4",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#6b5c4a",
+                    "on-primary-fixed-variant": "#534434",
+                    "on-secondary-container": "#6c6359",
+                    "outline": "#7f756d",
+                    "on-surface-variant": "#4d453e",
+                    "surface-dim": "#dfd9d5",
+                    "inverse-surface": "#32302e",
+                    "tertiary": "#625e56",
+                    "on-secondary-fixed": "#211a13",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#f3ede9",
+                    "primary-container": "#dcc7b1",
+                    "on-tertiary-fixed-variant": "#4a463f",
+                    "primary-fixed": "#f5dfc8",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1d1b19",
+                    "secondary-fixed-dim": "#d1c4b9",
+                    "surface-container-highest": "#e7e1de",
+                    "on-primary-container": "#625241",
+                    "on-tertiary-fixed": "#1e1b15",
+                    "inverse-on-surface": "#f6f0ec",
+                    "secondary-fixed": "#eee0d4",
+                    "tertiary-fixed-dim": "#ccc6bc",
+                    "secondary-container": "#eee0d4",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#d0c5ba",
+                    "on-secondary-fixed-variant": "#4e453d",
+                    "on-error": "#ffffff",
+                    "background": "#fef8f4",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e7e1de",
+                    "tertiary-fixed": "#e8e2d8",
+                    "tertiary-container": "#d0cac0",
+                    "on-background": "#1d1b19",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#d8c3ad",
+                    "on-tertiary-container": "#59554d",
+                    "secondary": "#665d54",
+                    "surface-tint": "#6b5c4a",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f9f2ef",
+                    "inverse-primary": "#d8c3ad",
+                    "on-primary-fixed": "#241a0c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "container-max": "1120px",
+                    "sm": "12px",
+                    "xs": "4px",
+                    "lg": "48px",
+                    "gutter": "20px",
+                    "xl": "80px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Newsreader"],
+                    "headline-xl": ["Newsreader"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["Newsreader"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fef8f4;
+            color: #1d1b19;
+        }
+        .prose p {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-stone-100/80 dark:bg-stone-900/80 backdrop-blur-md border-b border-stone-200/50 dark:border-stone-800/50 shadow-sm">
+<div class="flex justify-between items-center px-5 py-4 max-w-[1120px] mx-auto w-full">
+<div class="text-2xl font-bold font-serif text-stone-900 dark:text-stone-50 cursor-pointer active:opacity-70">
+                BlogBoard
+            </div>
+<nav class="hidden md:flex items-center space-x-8 font-serif italic text-lg">
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer active:opacity-70" href="#">Explore</a>
+<a class="text-stone-900 dark:text-stone-50 border-b-2 border-stone-400 pb-1 cursor-pointer active:opacity-70" href="#">Latest</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer active:opacity-70" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-stone-200/50 dark:bg-stone-800/50 rounded-full px-4 py-1.5">
+<span class="material-symbols-outlined text-stone-500 text-sm">search</span>
+<span class="ml-2 text-sm text-stone-500 font-serif">Search...</span>
+</div>
+<span class="material-symbols-outlined text-stone-800 dark:text-stone-100 cursor-pointer active:opacity-70" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-24 pb-20 md:pb-32 px-5">
+<article class="max-w-[800px] mx-auto">
+<!-- Breadcrumbs & Meta -->
+<div class="flex items-center gap-4 mb-8">
+<button class="flex items-center text-stone-500 hover:text-stone-900 transition-colors group">
+<span class="material-symbols-outlined mr-1 group-active:translate-x-[-2px] transition-transform" data-icon="arrow_back">arrow_back</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Back</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant"></div>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Editorial • 8 min read</span>
+</div>
+<!-- Title Section -->
+<header class="mb-12">
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight">The Quiet Resonance of Architectural Silence</h1>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="Author profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a thoughtful woman with soft natural lighting and a neutral beige background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHfmMsadOVpCo4cR9R45ZcYUmInvbmFzPhaiS-VommXIfIVJZmADUU9d268MYOyFuTEsGQ9lYR4BWyFMC9TDaRdZTy24urXi0egRkUmBERvGoc_rvyOmPORhUnrPC9hqk83sz6EljzUYGQhMZdFE7ZJ_4A8Y38B70x2rSaFyvq2FE3NmDZvmanNKPIctEjgSSP1Lgkj9ZwWsIZWI6BUHFd6UtIGKGJQqaqT_RLDma49tcqJgIZMIgHwbC_ZP09SBjMdlPIXeSyneDc"/>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface">Evelyn Thorne</p>
+<p class="font-label-sm text-label-sm text-stone-400">Published Oct 24, 2024</p>
+</div>
+</div>
+</header>
+<!-- Featured Image -->
+<figure class="mb-12 -mx-5 md:mx-0">
+<div class="aspect-[16/9] w-full rounded-none md:rounded-xl overflow-hidden shadow-sm">
+<img alt="Modern minimalist interior" class="w-full h-full object-cover" data-alt="Wide shot of a minimalist concrete interior with dramatic shadows and a single ray of sunlight hitting a stone floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7nqxWwy1xtg2sGyL-_rOreqRiP8-0P8fqg1nWFRR43PYbjf_XBbbNYcYZoGp2YSdAfbVyFGGVmo_k3Ne_-OR1dVNrhR5ePzLaXSQ3aPjwFvFWpgt1pTCEhk0hDa0KxTkL1bnf9XAc222I5O15w558b3wQmE9eS4SLlbD7Qh37Ped9223uu22FLSaF-B2egYzKlv7KjsQ5GmpBNybYpaUFNUbnM9K0WE5GS5x4Zs35Rupg52cNxOPWWHjVcTLQ3T0jl9Cu8ua_JwsN"/>
+</div>
+<figcaption class="mt-4 text-center text-stone-400 font-serif italic text-sm">Photography by Studio Orizon</figcaption>
+</figure>
+<!-- Post Content -->
+<div class="prose prose-stone max-w-none mb-16">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    There is a specific kind of beauty that exists only in the spaces we choose to leave empty. In an era defined by constant noise and visual clutter, the architectural philosophy of silence has emerged not just as an aesthetic choice, but as a vital necessity for the modern mind.
+                </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Minimalism is often misunderstood as a subtractive process—a stripping away of personality until only the cold, hard edges remain. However, true minimalist architecture is additive. It adds focus. It adds clarity. It adds a sense of presence that is often drowned out by the excessive ornamentation of contemporary design.
+                </p>
+<blockquote class="border-l-4 border-primary-container pl-6 py-2 my-10 italic font-headline-md text-headline-md text-primary">
+                    "Simplicity is not the absence of clutter, that's a consequence of simplicity. Simplicity is somehow essentially describing the purpose and place of an object and product."
+                </blockquote>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    When we enter a room that has been designed with restraint, our breathing slows. The eye is no longer frantic, darting from one stimulus to another. Instead, it follows the long line of a shadow across a textured wall, or rests upon the grain of a single piece of reclaimed timber.
+                </p>
+</div>
+<!-- Action Buttons Section -->
+<div class="border-t border-stone-200 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-3">
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-xl font-label-sm text-label-sm uppercase tracking-widest shadow-sm hover:shadow-md transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+                        Edit Post
+                    </button>
+<button class="border border-stone-300 text-stone-600 px-8 py-3 rounded-xl font-label-sm text-label-sm uppercase tracking-widest hover:bg-stone-100 transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+                        Delete
+                    </button>
+</div>
+<button class="text-stone-400 hover:text-stone-900 transition-colors font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+                    Share Story
+                </button>
+</div>
+</article>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-5 mt-auto bg-stone-100 dark:bg-stone-950 border-t border-stone-200 dark:border-stone-800">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-[1120px] mx-auto gap-4">
+<div class="font-serif italic text-stone-800 dark:text-stone-200">
+                BlogBoard Editorial
+            </div>
+<div class="flex gap-8">
+<a class="font-serif text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity duration-300" href="#">Privacy</a>
+<a class="font-serif text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity duration-300" href="#">Terms</a>
+<a class="font-serif text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity duration-300" href="#">Contact</a>
+</div>
+<div class="font-serif text-sm text-stone-600 dark:text-stone-400">
+                © 2024 BlogBoard Editorial
+            </div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 md:hidden bg-stone-50 dark:bg-stone-950 border-t border-stone-200 dark:border-stone-800 shadow-[0_-4px_12px_rgba(92,83,74,0.08)] z-50">
+<div class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 scale-95 active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-serif text-[11px] uppercase tracking-wider">Feed</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 scale-95 active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-serif text-[11px] uppercase tracking-wider">Create</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-stone-200 dark:bg-stone-800 rounded-lg px-4 py-1 text-stone-900 dark:text-stone-50 scale-95 active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-serif text-[11px] uppercase tracking-wider">Profile</span>
+</div>
+</nav>
+</body></html>
