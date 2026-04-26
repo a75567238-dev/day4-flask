@@ -10,6 +10,34 @@
     <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A collection of long-form thoughts on design, culture, and the art of slow living.</p>
   </section>
 
+  <section class="mb-8">
+    <form action="/" method="get" class="flex flex-nowrap items-center gap-3">
+      <input
+        type="text"
+        name="q"
+        value="{{ query }}"
+        placeholder="검색어를 입력하세요"
+        class="flex-1 min-w-0 bg-surface-container-lowest border border-stone-300 rounded-xl px-4 py-3 font-body-md text-body-md text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+      />
+      <select
+        name="sort"
+        onchange="this.form.submit()"
+        class="bg-surface-container-lowest border border-stone-300 rounded-xl px-4 py-3 font-body-md text-body-md text-stone-900 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+      >
+        <option value="latest" {% if sort == 'latest' %}selected{% endif %}>최신순</option>
+        <option value="oldest" {% if sort == 'oldest' %}selected{% endif %}>오래된순</option>
+        <option value="title" {% if sort == 'title' %}selected{% endif %}>제목순 (가나다)</option>
+      </select>
+      <button
+        type="submit"
+        class="inline-flex items-center justify-center gap-2 bg-primary text-on-primary px-5 py-3 rounded-xl font-label-sm text-label-sm hover:opacity-95 transition-opacity"
+      >
+        <span>🔍</span>
+        <span>검색</span>
+      </button>
+    </form>
+  </section>
+
   {% if posts %}
   <div class="grid grid-cols-1 md:grid-cols-12 gap-md">
 
@@ -76,12 +104,35 @@
   <!-- Empty state -->
   <div class="text-center py-24">
     <span class="material-symbols-outlined text-outline text-6xl mb-6 block">auto_stories</span>
-    <h2 class="font-headline-lg text-headline-lg text-stone-900 mb-4">No stories yet</h2>
-    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-md mx-auto">Begin your journey. Write the first story for your board.</p>
-    <a href="/post/new" class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-3 rounded-xl font-label-sm text-label-sm uppercase tracking-widest shadow-sm hover:shadow-md transition-all">
-      <span class="material-symbols-outlined text-sm">edit</span>
-      Write First Story
-    </a>
+    {% if is_search %}
+      <h2 class="font-headline-lg text-headline-lg text-stone-900 mb-4">검색 결과가 없습니다</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto">다른 검색어로 다시 시도해보세요.</p>
+    {% else %}
+      <h2 class="font-headline-lg text-headline-lg text-stone-900 mb-4">No stories yet</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-md mx-auto">Begin your journey. Write the first story for your board.</p>
+      <a href="/post/new" class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-3 rounded-xl font-label-sm text-label-sm uppercase tracking-widest shadow-sm hover:shadow-md transition-all">
+        <span class="material-symbols-outlined text-sm">edit</span>
+        Write First Story
+      </a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if posts %}
+  <div class="mt-10 flex items-center justify-center gap-4">
+    {% if has_prev %}
+      <a href="{{ url_for('index', page=page - 1, q=query if query else None, sort=sort) }}" class="inline-flex items-center px-4 py-2 rounded-lg border border-stone-300 text-stone-700 hover:bg-stone-100 transition-colors">이전</a>
+    {% else %}
+      <span class="inline-flex items-center px-4 py-2 rounded-lg border border-stone-200 text-stone-400 bg-stone-100 cursor-not-allowed">이전</span>
+    {% endif %}
+
+    <span class="font-label-sm text-label-sm text-stone-700">{{ page }} / {{ total_pages }}</span>
+
+    {% if has_next %}
+      <a href="{{ url_for('index', page=page + 1, q=query if query else None, sort=sort) }}" class="inline-flex items-center px-4 py-2 rounded-lg border border-stone-300 text-stone-700 hover:bg-stone-100 transition-colors">다음</a>
+    {% else %}
+      <span class="inline-flex items-center px-4 py-2 rounded-lg border border-stone-200 text-stone-400 bg-stone-100 cursor-not-allowed">다음</span>
+    {% endif %}
   </div>
   {% endif %}
 

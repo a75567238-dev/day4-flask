@@ -1,5 +1,7 @@
+import math
 import os
 from flask import Flask, render_template, request, redirect, url_for
+from sqlalchemy import or_
 from models import db, Post
 
 app = Flask(__name__)
@@ -22,8 +24,45 @@ with app.app_context():
 
 @app.route("/")
 def index():
-    posts = Post.query.order_by(Post.created_at.desc()).all()
-    return render_template("index.html", posts=posts)
+    page = request.args.get("page", 1, type=int)
+    query = request.args.get("q", "", type=str).strip()
+    sort = request.args.get("sort", "latest", type=str)
+    per_page = 10
+
+    if sort not in {"latest", "oldest", "title"}:
+        sort = "latest"
+
+    posts_query = Post.query
+    if query:
+        like_query = f"%{query}%"
+        posts_query = posts_query.filter(
+            or_(Post.title.ilike(like_query), Post.content.ilike(like_query))
+        )
+
+    if sort == "oldest":
+        posts_query = posts_query.order_by(Post.created_at.asc(), Post.id.asc())
+    elif sort == "title":
+        posts_query = posts_query.order_by(Post.title.asc(), Post.id.desc())
+    else:
+        posts_query = posts_query.order_by(Post.created_at.desc(), Post.id.desc())
+
+    total_posts = posts_query.count()
+    total_pages = max(1, math.ceil(total_posts / per_page))
+    page = min(max(1, page), total_pages)
+
+    posts = posts_query.offset((page - 1) * per_page).limit(per_page).all()
+
+    return render_template(
+        "index.html",
+        posts=posts,
+        page=page,
+        total_pages=total_pages,
+        has_prev=page > 1,
+        has_next=page < total_pages,
+        query=query,
+        sort=sort,
+        is_search=bool(query),
+    )
 
 
 @app.route("/post/new", methods=["GET", "POST"])
